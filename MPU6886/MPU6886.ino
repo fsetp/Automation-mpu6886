@@ -72,7 +72,7 @@ void loop()
 				M5.Lcd.printf("X : %d ms   ", g_nLoopMax * DELAY_MS);
 				M5.Lcd.setTextFont(8);
 				M5.Lcd.setCursor(10, 30);
-				M5.Lcd.printf("%04.0f", abs(accX * 1000));
+				M5.Lcd.printf("%04.0f", abs(max_accX * 1000));
 				break;
 			case AXIS_Y:
 				M5.Lcd.setTextFont(4);
@@ -80,7 +80,7 @@ void loop()
 				M5.Lcd.printf("Y : %d ms   ", g_nLoopMax * DELAY_MS);
 				M5.Lcd.setTextFont(8);
 				M5.Lcd.setCursor(10, 30);
-				M5.Lcd.printf("%04.0f", abs(accY * 1000));
+				M5.Lcd.printf("%04.0f", abs(max_accY * 1000));
 				break;
 			case AXIS_Z:
 				M5.Lcd.setTextFont(4);
@@ -88,9 +88,13 @@ void loop()
 				M5.Lcd.printf("Z : %d ms   ", g_nLoopMax * DELAY_MS);
 				M5.Lcd.setTextFont(8);
 				M5.Lcd.setCursor(10, 30);
-				M5.Lcd.printf("%04.0f", abs(accZ * 1000));
+				M5.Lcd.printf("%04.0f", abs(max_accZ * 1000));
 				break;
 		}
+		max_accX = 0;
+		max_accY = 0;
+		max_accZ = 0;
+
 	}
 	delay(DELAY_MS);
 }
